@@ -5,15 +5,21 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
+  let message = "";
+  let result = [];
   if (playerSelection === computerSelection) {
-    return "It's a Tie!";
+    message = "It's a Tie!";
+    result = [message, 0, 0];
   } else if (
     (playerSelection === "rock" && computerSelection === "scissors") ||
     (playerSelection === "paper" && computerSelection === "rock") ||
     (playerSelection === "scissors" && computerSelection === "paper")
   ) {
-    return `You Won! ${playerSelection} beats ${computerSelection}`;
+    message = `You Won! ${playerSelection} beats ${computerSelection}`;
+    result = [message, 1, 0];
   } else {
-    return `You Lost! ${computerSelection} beats ${playerSelection}`;
+    message = `You Lost! ${computerSelection} beats ${playerSelection}`;
+    result = [message, 0, 1];
   }
+  return result;
 }
