@@ -35,6 +35,17 @@ function activateTheButtons() {
   });
 }
 
+function deactivateTheButtons() {
+  const buttons = document.querySelectorAll("button");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      let result = playRound(button.textContent, getComputerChoice());
+      game(result);
+    });
+  });
+}
+
 let playerScore = 0;
 let computerScore = 0;
 
