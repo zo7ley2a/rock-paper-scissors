@@ -21,7 +21,7 @@ function playRound(playerSelection, computerSelection) {
     message = `You Lost! ${computerSelection} beats ${playerSelection}`;
     resultOfRound = [message, 0, 1];
   }
-  return console.log(resultOfRound);
+    return resultOfRound;
 }
 
 function activateTheButtons() {
@@ -29,7 +29,28 @@ function activateTheButtons() {
 
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
-      playRound(button.textContent, getComputerChoice());
+      let result = playRound(button.textContent, getComputerChoice());
+      game(result);
     });
   });
+}
+
+let playerScore = 0;
+let computerScore = 0;
+
+activateTheButtons();
+
+function game (result){
+  let resultArea = document.querySelector('.result-area');
+  if (playerScore === 5){
+
+  } else if (computerScore === 5){
+
+  }
+
+  playerScore += result[1];
+  computerScore += result[2];
+  let messageOfRound = document.createElement('p');
+  messageOfRound.textContent = result[0];
+  resultArea.appendChild(messageOfRound);
 }
