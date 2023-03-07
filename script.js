@@ -21,5 +21,15 @@ function playRound(playerSelection, computerSelection) {
     message = `You Lost! ${computerSelection} beats ${playerSelection}`;
     resultOfRound = [message, 0, 1];
   }
-  return resultOfRound;
+  return console.log(resultOfRound);
+}
+
+function activateTheButtons() {
+  const buttons = document.querySelectorAll("button");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      playRound(button.textContent, getComputerChoice());
+    });
+  });
 }
