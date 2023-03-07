@@ -23,26 +23,3 @@ function playRound(playerSelection, computerSelection) {
   }
   return resultOfRound;
 }
-
-function game() {
-  let playerScore = 0;
-  let computerScore = 0;
-
-  for (let i = 0; i < 5; i++) {
-    let playerSelection = prompt("Enter your weapon!").toLowerCase();
-    let computerSelection = getComputerChoice();
-    let currentRound = playRound(playerSelection, computerSelection);
-    playerScore += currentRound[1];
-    computerScore += currentRound[2];
-    console.log(currentRound[0]);
-  }
-  if (playerScore > computerScore) {
-    console.log("You Won The Game!");
-  } else if (computerScore > playerScore) {
-    console.log("You Lost The Game!");
-  } else {
-    console.log("No One Won This Game!");
-  }
-}
-
-game();
