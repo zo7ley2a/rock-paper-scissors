@@ -47,8 +47,8 @@ function handleTheRound() {
 
 function game(resultOfRound) {
   let resultArea = document.querySelector('.result-area');
-  playerScore += result[1];
-  computerScore += result[2];
+  playerScore += resultOfRound[1];
+  computerScore += resultOfRound[2];
 
   if (playerScore === 5) {
     deactivateTheButtons();
@@ -67,7 +67,7 @@ function game(resultOfRound) {
   }
 
   let messageOfRound = document.createElement('p');
-  messageOfRound.textContent = `${result[0]}  (Player = ${playerScore} - Computer = ${computerScore})`;
+  messageOfRound.textContent = `${resultOfRound[0]}  (Player = ${playerScore} - Computer = ${computerScore})`;
   resultArea.appendChild(messageOfRound);
 }
 
