@@ -54,12 +54,14 @@ function game(result) {
     deactivateTheButtons();
     let finalMessage = document.createElement('p');
     finalMessage.textContent = "You Won The Game!!!!!!";
+    finalMessage.setAttribute('style', 'color: green; font-weight: bold;');  
     resultArea.appendChild(finalMessage);
     return;
   } else if (computerScore === 5) {
     deactivateTheButtons();
     let finalMessage = document.createElement('p');
     finalMessage.textContent = "You Lost The Game :(";
+    finalMessage.setAttribute('style', 'color: red; font-weight: bold;');
     resultArea.appendChild(finalMessage);
     return;
   }
