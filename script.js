@@ -7,19 +7,23 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
   let message = "";
   let resultOfRound = [];
+  let playerScoreOfTheRound = 0;
+  let computerScoreOfTheRound = 0;
   if (playerSelection === computerSelection) {
     message = "It's a Tie!";
-    resultOfRound = [message, 0, 0];
+    resultOfRound = [message, playerScoreOfTheRound, computerScoreOfTheRound];
   } else if (
     (playerSelection === "rock" && computerSelection === "scissors") ||
     (playerSelection === "paper" && computerSelection === "rock") ||
     (playerSelection === "scissors" && computerSelection === "paper")
   ) {
     message = `You Won! ${playerSelection} beats ${computerSelection}`;
-    resultOfRound = [message, 1, 0];
+    playerScoreOfTheRound = 1;
+    resultOfRound = [message, playerScoreOfTheRound, computerScoreOfTheRound];
   } else {
     message = `You Lost! ${computerSelection} beats ${playerSelection}`;
-    resultOfRound = [message, 0, 1];
+    computerScoreOfTheRound = 1;
+    resultOfRound = [message, playerScoreOfTheRound, computerScoreOfTheRound];
   }
   return resultOfRound;
 }
