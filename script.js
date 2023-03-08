@@ -41,11 +41,11 @@ function deactivateTheButtons() {
 }
 
 function handleTheRound() {
-  let result = playRound(this.textContent, getComputerChoice());
-  game(result);
+  let resultOfRound = playRound(this.textContent, getComputerChoice());
+  game(resultOfRound);
 }
 
-function game(result) {
+function game(resultOfRound) {
   let resultArea = document.querySelector('.result-area');
   playerScore += result[1];
   computerScore += result[2];
