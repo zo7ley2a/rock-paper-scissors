@@ -21,7 +21,7 @@ function playRound(playerSelection, computerSelection) {
     message = `You Lost! ${computerSelection} beats ${playerSelection}`;
     resultOfRound = [message, 0, 1];
   }
-    return resultOfRound;
+  return resultOfRound;
 }
 
 function activateTheButtons() {
@@ -40,28 +40,36 @@ function deactivateTheButtons() {
   });
 }
 
-function handleTheRound(){
+function handleTheRound() {
   let result = playRound(this.textContent, getComputerChoice());
   game(result);
+}
+
+function game(result) {
+  let resultArea = document.querySelector('.result-area');
+  playerScore += result[1];
+  computerScore += result[2];
+
+  if (playerScore === 5) {
+    deactivateTheButtons();
+    let finalMessage = document.createElement('p');
+    finalMessage.textContent = "You Won The Game!!!!!!";
+    resultArea.appendChild(finalMessage);
+    return;
+  } else if (computerScore === 5) {
+    deactivateTheButtons();
+    let finalMessage = document.createElement('p');
+    finalMessage.textContent = "You Lost The Game :(";
+    resultArea.appendChild(finalMessage);
+    return;
+  }
+
+  let messageOfRound = document.createElement('p');
+  messageOfRound.textContent = `${result[0]}  (Player = ${playerScore} - Computer = ${computerScore})`;
+  resultArea.appendChild(messageOfRound);
 }
 
 let playerScore = 0;
 let computerScore = 0;
 
 activateTheButtons();
-
-function game (result){
-  let resultArea = document.querySelector('.result-area');
-  if (playerScore === 5){
-
-  } else if (computerScore === 5){
-
-  }
-
-  playerScore += result[1];
-  computerScore += result[2];
-  let messageOfRound = document.createElement('p');
-  messageOfRound.textContent = result[0];
-  resultArea.appendChild(messageOfRound);
-  deactivateTheButtons();
-}
