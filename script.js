@@ -28,10 +28,7 @@ function activateTheButtons() {
   const buttons = document.querySelectorAll("button");
 
   buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      let result = playRound(button.textContent, getComputerChoice());
-      game(result);
-    });
+    button.addEventListener("click", handleTheRound);
   });
 }
 
@@ -39,11 +36,13 @@ function deactivateTheButtons() {
   const buttons = document.querySelectorAll("button");
 
   buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      let result = playRound(button.textContent, getComputerChoice());
-      game(result);
-    });
+    button.removeEventListener("click", handleTheRound);
   });
+}
+
+function handleTheRound(){
+  let result = playRound(this.textContent, getComputerChoice());
+  game(result);
 }
 
 let playerScore = 0;
@@ -64,4 +63,5 @@ function game (result){
   let messageOfRound = document.createElement('p');
   messageOfRound.textContent = result[0];
   resultArea.appendChild(messageOfRound);
+  deactivateTheButtons();
 }
